@@ -1,0 +1,264 @@
+.watch.join-mode {
+  height: auto;
+  min-height: 100dvh;
+  padding-bottom: 56px;
+  background: var(--ink);
+  color: var(--text);
+  overflow: auto;
+}
+.watch.join-mode .bar {
+  height: 150px;
+  justify-content: center;
+}
+.watch.join-mode .bar-title {
+  display: none;
+}
+.watch.join-mode .brand-lockup img {
+  width: 190px;
+  height: 132px;
+}
+.watch.join-mode .join {
+  color: var(--text);
+}
+.watch.join-mode .join h1 {
+  color: var(--brand-deep);
+  margin: 0 0 10px;
+}
+.watch {
+  height: 100dvh;
+  min-height: 480px;
+  background: var(--player-bg);
+  color: var(--on-player);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.bar {
+  height: 82px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: var(--bar-bg);
+  color: var(--text);
+  border-bottom: 1px solid var(--bar-line);
+  z-index: 2;
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+.brand-lockup img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+.brand-divider {
+  height: 36px;
+  border-left: 1px solid var(--line);
+}
+.product-brand {
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+.bar-title {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.join {
+  color: var(--text);
+}
+.join .muted {
+  color: var(--muted);
+}
+.player .muted {
+  color: var(--player-muted);
+}
+.mute {
+  color: var(--player-control);
+}
+.player {
+  position: relative;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  background: var(--black);
+}
+.player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.audio-host {
+  display: none;
+}
+.center {
+  margin: auto;
+  text-align: center;
+  padding: 24px;
+}
+.wait {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  background: var(--player-bg);
+}
+.join {
+  width: min(calc(100% - 28px), 480px);
+  margin: auto;
+}
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+}
+.full {
+  width: 100%;
+  margin-top: 12px;
+}
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--spinner-track);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.sound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 18px 26px;
+  box-shadow: 0 8px 40px var(--black-overlay);
+}
+.controls {
+  position: absolute;
+  bottom: 16px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.controls.visible {
+  opacity: 1;
+}
+.vol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mute {
+  background: transparent;
+  border: 0;
+  color: var(--player-control);
+  font-size: 1.2rem;
+  padding: 4px;
+}
+.vol input {
+  width: min(24vw, 150px);
+  accent-color: var(--accent);
+}
+.quality {
+  margin-left: auto;
+  color: var(--player-muted);
+}
+.quality select {
+  margin-left: 6px;
+  color: var(--text);
+  background: var(--select-bg);
+  border: 1px solid var(--line);
+  padding: 8px;
+  border-radius: 8px;
+}
+.player-btn {
+  border: 0;
+  background: transparent;
+  color: var(--player-control);
+  font-size: 1.7rem;
+}
+.state {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--control-bg);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.86rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.state.visible {
+  opacity: 1;
+}
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.dot.reconnecting {
+  background: var(--warning);
+}
+.reconnect {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: var(--reconnect-bg);
+  color: var(--warning-text);
+  padding: 8px 13px;
+}
+.center h1 {
+  margin: 0 0 8px;
+}
+.center h1 + p {
+  margin: 0;
+}
+@media (max-width: 560px) {
+  .controls {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 8px;
+    gap: 8px;
+  }
+  .quality {
+    font-size: 0.8rem;
+  }
+  .quality select {
+    padding: 7px 3px;
+  }
+  .vol input {
+    width: 72px;
+  }
+}

@@ -1,0 +1,150 @@
+<main class="shell">
+  <div class="container">
+    <header class="head">
+      <a class="back-link" routerLink="/app">
+        <span class="back-arrow" aria-hidden="true">←</span>
+        <span>Voltar ao início</span>
+      </a>
+      <a class="brand-lockup" routerLink="/app" aria-label="ScreenGrando">
+        <img src="/ScreenGrandoLogo.png" alt="ScreenGrando" />
+      </a>
+    </header>
+    @if (loading()) {
+      <section class="card">
+        <p>Preparando sua transmissão…</p>
+      </section>
+    } @else if (ended()) {
+      <section class="card end">
+        <h1>Sessão encerrada</h1>
+        <p class="muted">Esta transmissão não está mais disponível.</p>
+        <button class="btn" (click)="back()">Voltar ao painel</button>
+      </section>
+    } @else if (!live()) {
+      <section class="intro">
+        <p class="eyebrow">SALA {{ code }}</p>
+        <h1>Prepare sua transmissão</h1>
+        <p class="muted">Escolha como deseja compartilhar sua tela.</p>
+      </section>
+      <section class="card prep">
+        @if (incompatible) {
+          <div class="warning">
+            <strong>Compatibilidade limitada para áudio.</strong>
+            Este navegador não captura áudio da tela. Use Chrome ou Edge para transmitir com áudio.
+            O vídeo continuará disponível.
+          </div>
+        }
+        <label class="field">
+          Qualidade da captura
+          <select [(ngModel)]="quality">
+            <option value="720p">720p</option>
+            <option value="1080p">1080p</option>
+            <option value="native">Nativa</option>
+          </select>
+        </label>
+        <label class="field">
+          Quadros por segundo
+          <select [(ngModel)]="fps">
+            <option [ngValue]="15">15 fps</option>
+            <option [ngValue]="30">30 fps</option>
+            <option [ngValue]="60">60 fps</option>
+          </select>
+        </label>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="systemAudio" />
+          <span>Compartilhar áudio da tela ou aba</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="microphone" />
+          <span>Ativar microfone</span>
+        </label>
+        <aside class="tip">
+          Na janela do navegador, marque
+          <strong>Compartilhar áudio</strong>
+          . O áudio da tela inteira funciona no Windows e ChromeOS; o áudio de abas funciona em
+          sistemas com Chromium.
+        </aside>
+        <button class="btn primary start" [disabled]="busy()" (click)="start()">
+          {{ busy() ? 'Conectando…' : 'Iniciar transmissão' }}
+        </button>
+      </section>
+    } @else {
+      <section class="intro">
+        <p class="eyebrow live-label">● AO VIVO</p>
+        <h1>{{ title() }}</h1>
+        <p class="muted">
+          Transmitindo há {{ elapsed() }} · {{ lk.participantsCount() }} espectadores
+        </p>
+      </section>
+      <section class="card live">
+        <div class="preview">
+          <div class="screen-icon">▣</div>
+          <p>Compartilhamento ativo</p>
+        </div>
+        <div class="room-code">
+          <span>Código da sala</span>
+          <strong>{{ code }}</strong>
+          <button class="btn" type="button" (click)="copyCode()">
+            {{ codeCopied() ? 'Copiado' : 'Copiar código' }}
+          </button>
+        </div>
+        <label class="field">
+          Link para espectadores
+          <div class="row">
+            <input class="link" [value]="viewerUrl()" readonly />
+            <button class="btn" (click)="copy()">{{ copied() ? 'Copiado' : 'Copiar link' }}</button>
+          </div>
+        </label>
+        <div class="row mobile-column">
+          <button class="btn" (click)="toggleMic()">
+            {{ micMuted() ? 'Ativar microfone' : 'Silenciar microfone' }}
+          </button>
+          <button class="btn danger" (click)="endSession()">Encerrar sessão</button>
+        </div>
+      </section>
+    }
+  </div>
+  <sg-brand-footer />
+  @if (confirmEnd()) {
+    <div
+      class="dialog-backdrop"
+      role="presentation"
+      (click)="cancelEnd()"
+      (keydown.escape)="cancelEnd()"
+    >
+      <section
+        class="dialog-panel dialog-confirm"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="end-session-title"
+        aria-describedby="end-session-message"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="dialog-body">
+          <div class="dialog-heading">
+            <h2 class="dialog-title" id="end-session-title">Encerrar sessão?</h2>
+          </div>
+          <p class="dialog-message" id="end-session-message">
+            A transmissão será encerrada e todos os espectadores serão desconectados.
+          </p>
+          <div class="dialog-actions">
+            <button
+              #cancelEndButton
+              class="dialog-button dialog-button-secondary"
+              type="button"
+              (click)="cancelEnd()"
+            >
+              Continuar transmissão
+            </button>
+            <button
+              class="dialog-button dialog-button-danger"
+              type="button"
+              (click)="confirmEndSession()"
+            >
+              Encerrar sessão
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  }
+</main>

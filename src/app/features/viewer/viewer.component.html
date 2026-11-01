@@ -1,0 +1,114 @@
+<main
+  class="watch"
+  [class.join-mode]="!joined()"
+  (mousemove)="showControls()"
+  (touchstart)="showControls()"
+>
+  <header class="bar">
+    <span class="brand-lockup">
+      <img src="/ScreenGrandoLogo.png" alt="ScreenGrando" />
+    </span>
+    <span class="bar-title">{{ session()?.title }}</span>
+  </header>
+  @if (loading()) {
+    <section class="center">
+      <div class="spinner"></div>
+      <p>Carregando transmissão…</p>
+    </section>
+  } @else if (ended()) {
+    <section class="center">
+      <h1>Transmissão encerrada</h1>
+      <p class="muted">Obrigado por acompanhar.</p>
+    </section>
+  } @else if (!joined()) {
+    <section class="join card">
+      <p class="eyebrow">TRANSMISSÃO AO VIVO</p>
+      <h1>{{ session()?.title }}</h1>
+      <p class="muted">
+        {{ session()?.publisherName || 'O apresentador' }} compartilhará a tela nesta sala.
+      </p>
+      <form (ngSubmit)="watch()">
+        @if (session()?.pinProtected) {
+          <label class="field">
+            PIN da sala
+            <input
+              name="pin"
+              [(ngModel)]="pin"
+              type="password"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              required
+              placeholder="Digite o PIN"
+            />
+          </label>
+        }
+        <label class="field">
+          Seu nome de exibição
+          <span class="muted">(opcional)</span>
+          <input name="name" [(ngModel)]="displayName" maxlength="60" placeholder="Convidado" />
+        </label>
+        <button class="btn primary full" [disabled]="busy()">
+          {{ busy() ? 'Conectando…' : 'Assistir' }}
+        </button>
+      </form>
+    </section>
+  } @else {
+    <section class="player" #player>
+      <video #video autoplay playsinline></video>
+      <div #audioHost class="audio-host" aria-label="Áudio da transmissão"></div>
+      @if (!lk.hasVideo()) {
+        <div class="center wait">
+          <div class="spinner"></div>
+          <h2>Aguardando o apresentador</h2>
+          <p class="muted">A transmissão começará em instantes.</p>
+        </div>
+      }
+      @if (lk.audioBlocked() && lk.hasAudio()) {
+        <button class="sound" (click)="enableSound()" aria-label="Ativar som da transmissão">
+          🔇 Áudio bloqueado · Ativar som
+        </button>
+      }
+      <div class="state" [class.visible]="controls()">
+        <span class="dot" [class.reconnecting]="reconnecting()"></span>
+        {{ connectionLabel() }} · {{ lk.participantsCount() }} espectadores
+      </div>
+      <div class="controls" [class.visible]="controls()">
+        <div class="vol">
+          <button
+            class="mute"
+            type="button"
+            (click)="toggleMute()"
+            [attr.aria-label]="muted() ? 'Ativar som' : 'Silenciar som'"
+          >
+            {{ muted() ? '🔇' : '🔊' }}
+          </button>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            aria-label="Volume"
+            [value]="volume()"
+            (input)="setVolume($any($event.target).value)"
+          />
+        </div>
+        <label class="quality">
+          Qualidade
+          <select (change)="setQuality($any($event.target).value)">
+            <option value="auto">Auto</option>
+            <option value="HIGH">Alta</option>
+            <option value="MEDIUM">Média</option>
+            <option value="LOW">Baixa</option>
+          </select>
+        </label>
+        <button class="player-btn" (click)="fullscreen()" aria-label="Tela cheia">⛶</button>
+      </div>
+      @if (reconnecting()) {
+        <div class="reconnect">Reconectando à transmissão…</div>
+      }
+    </section>
+  }
+  @if (!joined() && !loading()) {
+    <sg-brand-footer />
+  }
+</main>

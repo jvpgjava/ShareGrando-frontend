@@ -1,0 +1,23 @@
+.home {
+  position: relative;
+}
+
+.optional {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.back-link {
+  position: absolute;
+  top: 24px;
+  left: clamp(16px, 4vw, 64px);
+}
+
+@media (max-width: 560px) {
+  .back-link {
+    position: static;
+    display: flex;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+}

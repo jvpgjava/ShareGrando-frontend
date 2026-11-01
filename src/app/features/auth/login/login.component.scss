@@ -1,0 +1,28 @@
+.login {
+  display: grid;
+  place-items: center;
+}
+.card {
+  width: min(100%, 460px);
+}
+.brand {
+  font-size: 1.2rem;
+}
+.brand span {
+  color: var(--accent);
+}
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-top: 36px;
+}
+.full {
+  width: 100%;
+  margin-top: 12px;
+}
+.foot {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.85rem;
+}

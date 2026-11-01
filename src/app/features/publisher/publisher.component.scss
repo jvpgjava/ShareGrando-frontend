@@ -1,0 +1,166 @@
+.shell {
+  padding-bottom: 68px;
+}
+.container {
+  width: min(100%, 820px);
+}
+.head {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 0 clamp(16px, 4vw, 64px);
+  box-sizing: border-box;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-lockup img {
+  width: 280px;
+  height: 194px;
+  object-fit: contain;
+}
+.back-link {
+  position: absolute;
+  left: clamp(16px, 4vw, 64px);
+  top: 8px;
+}
+.intro {
+  padding: 0 0 22px;
+  text-align: center;
+}
+.intro .eyebrow {
+  margin: 0;
+}
+.intro h1 {
+  margin: 0;
+}
+.intro .muted {
+  margin: 6px 0 0;
+}
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+}
+.prep {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  padding: 20px;
+}
+.prep .field {
+  margin-bottom: 10px;
+  gap: 5px;
+}
+.switch {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+  min-height: 26px;
+}
+.switch input {
+  accent-color: var(--accent);
+  width: 20px;
+  height: 20px;
+}
+.tip {
+  margin: 12px 0;
+  background: var(--tip-bg);
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+.start {
+  width: 100%;
+  margin-top: 4px;
+  min-height: 44px;
+}
+.live-label {
+  color: var(--success);
+}
+.live {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.preview {
+  min-height: 200px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: var(--muted);
+}
+.screen-icon {
+  font-size: 3rem;
+  color: var(--accent);
+}
+.room-code {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 18px;
+}
+.room-code strong {
+  margin-right: auto;
+  color: var(--brand-deep);
+  letter-spacing: 0.08em;
+}
+.link {
+  min-width: 0;
+  flex: 1;
+  background: var(--input-bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 12px;
+}
+.end {
+  max-width: 620px;
+  margin: 8vh auto 0;
+  text-align: center;
+}
+.end h1 {
+  margin: 0 0 12px;
+}
+.end .muted {
+  margin: 0 0 20px;
+}
+@media (max-width: 720px) {
+  .head {
+    height: auto;
+    flex-direction: column;
+    padding-top: 0;
+  }
+  .back-link {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 560px) {
+  .brand-lockup img {
+    width: 220px;
+    height: 152px;
+  }
+  .prep {
+    padding: 16px;
+  }
+  .prep .field {
+    margin-bottom: 8px;
+  }
+  .switch {
+    margin: 8px 0;
+  }
+  .tip {
+    margin: 10px 0;
+    padding: 9px 11px;
+  }
+}
