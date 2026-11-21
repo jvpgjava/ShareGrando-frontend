@@ -16,8 +16,8 @@ import { BrandFooterComponent } from '../../brand-footer.component';
           <span class="back-arrow" aria-hidden="true">←</span>
           <span>Voltar ao início</span>
         </a>
-        <a class="brand-lockup" routerLink="/app" aria-label="ScreenGrando">
-          <img src="/ScreenGrandoLogo.png" alt="ScreenGrando" />
+        <a class="brand-lockup" routerLink="/app" aria-label="Jayshare">
+          <img src="/JayshareMascot.png" alt="Mascote Jayshare" />
         </a>
 
         <div class="page-heading">
@@ -61,7 +61,7 @@ import { BrandFooterComponent } from '../../brand-footer.component';
           </button>
         </form>
       </section>
-      <sg-brand-footer />
+      <jay-brand-footer />
     </main>
   `,
   styleUrls: ['../dashboard/dashboard.component.scss', './join.component.scss'],

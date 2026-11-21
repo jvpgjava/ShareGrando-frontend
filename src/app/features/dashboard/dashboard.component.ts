@@ -12,8 +12,8 @@ import { BrandFooterComponent } from '../../brand-footer.component';
   template: `
     <main class="shell home">
       <section class="workspace">
-        <a class="brand-lockup" href="/" aria-label="ScreenGrando">
-          <img src="/ScreenGrandoLogo.png" alt="ScreenGrando" />
+        <a class="brand-lockup" href="/" aria-label="Jayshare">
+          <img src="/JayshareMascot.png" alt="Mascote Jayshare" />
         </a>
 
         <div class="page-heading">
@@ -64,7 +64,7 @@ import { BrandFooterComponent } from '../../brand-footer.component';
           </a>
         </form>
       </section>
-      <sg-brand-footer />
+      <jay-brand-footer />
     </main>
   `,
   styleUrls: ['./dashboard.component.scss'],
@@ -103,7 +103,7 @@ export class DashboardComponent {
 
     this.api.create(this.title.trim(), this.pinEnabled ? this.pin : null).subscribe({
       next: (session) => {
-        sessionStorage.setItem(`screengrando.publisher.${session.code}`, session.publisherSecret);
+        sessionStorage.setItem(`jayshare.publisher.${session.code}`, session.publisherSecret);
 
         void this.router.navigate(['/share', session.code]);
       },

@@ -13,12 +13,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: -70px;
+  margin-bottom: 6px;
 }
 .brand-lockup img {
   display: block;
-  width: 280px;
-  height: 194px;
+  width: 250px;
+  height: 210px;
   object-fit: contain;
 }
 .page-heading {
@@ -28,7 +28,7 @@
   font-size: clamp(1.8rem, 4vw, 2.3rem);
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: var(--brand-deep);
+  color: var(--heading);
   margin: 0;
 }
 .sub {
@@ -49,7 +49,7 @@
 }
 .create-card h2 {
   font-size: 1.05rem;
-  color: var(--brand-deep);
+  color: var(--heading);
   margin: 0 0 16px;
 }
 .field {
@@ -83,7 +83,7 @@
 .pin-toggle input {
   width: 18px;
   height: 18px;
-  accent-color: var(--accent);
+  accent-color: var(--action);
 }
 .pin-field {
   margin-top: 12px;
@@ -95,11 +95,11 @@
 }
 @media (max-height: 720px) and (min-width: 561px) {
   .brand-lockup {
-    margin-bottom: -72px;
+    margin-bottom: 4px;
   }
   .brand-lockup img {
-    width: 250px;
-    height: 174px;
+    width: 220px;
+    height: 180px;
   }
   .page-heading {
     margin-bottom: 12px;
@@ -130,11 +130,11 @@
     max-width: 440px;
   }
   .brand-lockup {
-    margin-bottom: -50px;
+    margin-bottom: 4px;
   }
   .brand-lockup img {
-    width: 220px;
-    height: 152px;
+    width: 200px;
+    height: 170px;
   }
   .create-card {
     padding: 20px;

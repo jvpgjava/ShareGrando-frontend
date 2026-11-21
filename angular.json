@@ -3,11 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "screengrando": {
+    "jayshare": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
-      "prefix": "sg",
+      "prefix": "jay",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -53,10 +53,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "screengrando:build:production"
+              "buildTarget": "jayshare:build:production"
             },
             "development": {
-              "buildTarget": "screengrando:build:development",
+              "buildTarget": "jayshare:build:development",
               "proxyConfig": "proxy.conf.json"
             }
           },

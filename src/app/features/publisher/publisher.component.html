@@ -5,8 +5,8 @@
         <span class="back-arrow" aria-hidden="true">←</span>
         <span>Voltar ao início</span>
       </a>
-      <a class="brand-lockup" routerLink="/app" aria-label="ScreenGrando">
-        <img src="/ScreenGrandoLogo.png" alt="ScreenGrando" />
+      <a class="brand-lockup" routerLink="/app" aria-label="Jayshare">
+        <img src="/JayshareMascot.png" alt="Mascote Jayshare" />
       </a>
     </header>
     @if (loading()) {
@@ -103,12 +103,12 @@
       </section>
     }
   </div>
-  <sg-brand-footer />
+  <jay-brand-footer />
   @if (confirmEnd()) {
     <div
       class="dialog-backdrop"
       role="presentation"
-      (click)="cancelEnd()"
+      (click)="cancelEndOnBackdrop($event)"
       (keydown.escape)="cancelEnd()"
     >
       <section
@@ -117,7 +117,6 @@
         aria-modal="true"
         aria-labelledby="end-session-title"
         aria-describedby="end-session-message"
-        (click)="$event.stopPropagation()"
       >
         <div class="dialog-body">
           <div class="dialog-heading">

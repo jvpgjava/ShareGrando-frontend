@@ -23,7 +23,7 @@ describe('AuthService', () => {
     const response = {
       accessToken: 'token-1',
       expiresIn: 600,
-      user: { id: 'u1', name: 'Pessoa', email: 'pessoa@grando.test', role: 'ADMIN' as const },
+      user: { id: 'u1', name: 'Pessoa', email: 'pessoa@jayshare.test', role: 'ADMIN' as const },
     };
     auth.login(response.user.email, 'senha').subscribe();
     const req = http.expectOne('/api/auth/login');
@@ -32,13 +32,13 @@ describe('AuthService', () => {
     req.flush(response);
     expect(auth.token()).toBe('token-1');
     expect(auth.user()?.name).toBe('Pessoa');
-    expect(sessionStorage.getItem('screengrando.auth')).toContain('token-1');
+    expect(sessionStorage.getItem('jayshare.auth')).toContain('token-1');
   });
 
   it('clears the persisted session', () => {
-    sessionStorage.setItem('screengrando.auth', '{}');
+    sessionStorage.setItem('jayshare.auth', '{}');
     auth.clear();
     expect(auth.token()).toBeNull();
-    expect(sessionStorage.getItem('screengrando.auth')).toBeNull();
+    expect(sessionStorage.getItem('jayshare.auth')).toBeNull();
   });
 });

@@ -9,7 +9,7 @@
   margin-left: calc(50% - 50vw);
   padding: 0 clamp(16px, 4vw, 64px);
   box-sizing: border-box;
-  height: 150px;
+  height: 205px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,8 +21,8 @@
   justify-content: center;
 }
 .brand-lockup img {
-  width: 280px;
-  height: 194px;
+  width: 225px;
+  height: 185px;
   object-fit: contain;
 }
 .back-link {
@@ -65,7 +65,7 @@
   min-height: 26px;
 }
 .switch input {
-  accent-color: var(--accent);
+  accent-color: var(--action);
   width: 20px;
   height: 20px;
 }
@@ -110,7 +110,7 @@
 }
 .room-code strong {
   margin-right: auto;
-  color: var(--brand-deep);
+  color: var(--heading);
   letter-spacing: 0.08em;
 }
 .link {
@@ -147,8 +147,8 @@
 }
 @media (max-width: 560px) {
   .brand-lockup img {
-    width: 220px;
-    height: 152px;
+    width: 200px;
+    height: 170px;
   }
   .prep {
     padding: 16px;

@@ -2,3 +2,4 @@
 dist/
 .angular/
 coverage/
+.idea/

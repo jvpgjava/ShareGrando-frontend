@@ -1,4 +1,4 @@
-# ScreenGrando Frontend
+# Jayshare Frontend
 
 Aplicação Angular standalone para criar salas sem login, transmitir tela em `/share/:code` e assistir em `/w/:code`. Angular 20 em modo strict; o SDK `livekit-client` está fixado em 2.22.3.
 
@@ -12,7 +12,7 @@ A configuração Angular encaminha `/api` para `http://localhost:8080` pelo `pro
 
 ## Produção
 
-`npm run build` gera os arquivos em `dist/screengrando/browser`. Sirva essa pasta pelo Nginx, habilite fallback para `index.html` e encaminhe `/api` para o Spring Boot. Os clientes conectam diretamente à URL LiveKit dos tokens; essa URL precisa ser pública e usar WSS em produção.
+`npm run build` gera os arquivos em `dist/jayshare/browser`. Sirva essa pasta pelo Nginx, habilite fallback para `index.html` e encaminhe `/api` para o Spring Boot. Os clientes conectam diretamente à URL LiveKit dos tokens; essa URL precisa ser pública e usar WSS em produção.
 
 ## Verificações
 

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ToastService } from './core/toast.service';
 
 @Component({
-  selector: 'sg-root',
+  selector: 'jay-root',
   standalone: true,
   imports: [RouterOutlet],
   template: `
@@ -12,7 +12,7 @@ import { ToastService } from './core/toast.service';
       <div
         class="dialog-backdrop"
         role="presentation"
-        (click)="toast.hide()"
+        (click)="dismissNoticeOnBackdrop($event)"
         (keydown.escape)="toast.hide()"
       >
         <section
@@ -21,7 +21,6 @@ import { ToastService } from './core/toast.service';
           aria-modal="true"
           aria-labelledby="notice-title"
           aria-describedby="notice-message"
-          (click)="$event.stopPropagation()"
         >
           <div class="dialog-body">
             <div class="dialog-heading">
@@ -61,6 +60,10 @@ import { ToastService } from './core/toast.service';
 })
 export class AppComponent {
   readonly toast = inject(ToastService);
+
+  dismissNoticeOnBackdrop(event: MouseEvent): void {
+    if (event.target === event.currentTarget) this.toast.hide();
+  }
 
   @ViewChild('noticeAction') private noticeAction?: ElementRef<HTMLButtonElement>;
   private previousFocus: HTMLElement | null = null;

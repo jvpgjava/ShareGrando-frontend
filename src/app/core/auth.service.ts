@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { LoginResponse, User } from './contracts';
 
-const STORAGE_KEY = 'screengrando.auth';
+const STORAGE_KEY = 'jayshare.auth';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

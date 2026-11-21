@@ -1,37 +1,42 @@
 :root {
-  --ink: #f8f5fc;
+  color-scheme: dark;
+  --ink: #0b0812;
   --black: #000;
-  --brand: #4d267a;
-  --brand-deep: #32184f;
-  --navy: #fff;
-  --panel: #f4edfb;
-  --line: #ded2e9;
-  --text: #2e2040;
-  --muted: #705e7e;
-  --accent: #7432c2;
-  --accent-strong: #5d259f;
+  --brand: #552475;
+  --brand-deep: #3c1958;
+  --heading: #f5ebff;
+  --navy: #181120;
+  --panel: #241a31;
+  --line: #59416d;
+  --text: #f4edfb;
+  --muted: #baa9cc;
+  --accent: #c47aff;
+  --accent-strong: #d7a5ff;
+  --action: #7d35ca;
+  --action-hover: #6425a9;
   --accent-ink: #fff;
   --on-player: #f8f3ff;
   --player-muted: #d9c8eb;
   --player-control: #fff;
-  --danger: #b83b4e;
-  --warning: #94610d;
+  --danger: #a83256;
+  --danger-text: #ff9ab1;
+  --warning: #f4c875;
   --warning-text: #f4d996;
-  --success: #087e55;
-  --player-bg: #130b20;
-  --control-border: #694a86;
-  --input-bg: #fff;
-  --tip-bg: #f4edfb;
-  --overlay-strong: #180d27cc;
+  --success: #70dcac;
+  --player-bg: #08050d;
+  --control-border: #684c82;
+  --input-bg: #110c19;
+  --tip-bg: #24192f;
+  --overlay-strong: #07030dcc;
   --black-overlay: #0009;
-  --control-bg: #261638ed;
-  --bar-bg: #fff;
-  --bar-line: #ded2e9;
-  --spinner-track: #745b8f;
-  --select-bg: #fff;
+  --control-bg: #1c122bed;
+  --bar-bg: #130d1b;
+  --bar-line: #463352;
+  --spinner-track: #5d4a72;
+  --select-bg: #1b1424;
   --reconnect-bg: #332817ed;
-  --shadow-color: #3b1b5914;
-  --glow: #7432c21a;
+  --shadow-color: #0007;
+  --glow: #a844ff2a;
   --radius: 9px;
   --shadow: 0 8px 28px var(--shadow-color);
 }
@@ -64,16 +69,16 @@ button {
 }
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--brand);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 input:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--brand);
+  outline: 2px solid var(--accent);
   outline-offset: 0;
 }
 a {
-  color: var(--brand);
+  color: var(--accent);
 }
 .back-link {
   display: inline-flex;
@@ -82,9 +87,9 @@ a {
   gap: 8px;
   min-height: 44px;
   padding: 11px 16px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--action);
   border-radius: 7px;
-  background: var(--accent);
+  background: var(--action);
   color: var(--accent-ink);
   font-size: 0.92rem;
   font-weight: 650;
@@ -94,8 +99,8 @@ a {
   transition: background 0.15s, border-color 0.15s;
 }
 .back-link:hover {
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
+  background: var(--action-hover);
+  border-color: var(--action-hover);
   text-decoration: none;
 }
 .back-arrow {
@@ -139,13 +144,13 @@ a {
   border-color: var(--brand-deep);
 }
 .btn.primary {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--action);
+  border-color: var(--action);
   color: var(--accent-ink);
 }
 .btn.primary:hover {
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
+  background: var(--action-hover);
+  border-color: var(--action-hover);
 }
 .btn.danger {
   background: var(--danger);
@@ -153,8 +158,8 @@ a {
   color: var(--accent-ink);
 }
 .btn.danger:hover {
-  background: #9d2f41;
-  border-color: #9d2f41;
+  background: #862544;
+  border-color: #862544;
 }
 .btn:disabled {
   opacity: 0.65;
@@ -179,7 +184,7 @@ a {
 }
 .field input:focus-visible,
 .field select:focus-visible {
-  border-color: var(--brand);
+  border-color: var(--accent);
 }
 .field select {
   box-sizing: border-box;
@@ -207,7 +212,7 @@ body:has(.dialog-backdrop) {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: #25143d80;
+  background: #05020bd9;
   animation: dialog-fade-in 0.16s ease-out both;
 }
 .dialog-panel {
@@ -217,7 +222,7 @@ body:has(.dialog-backdrop) {
   border-radius: 10px;
   background: var(--navy);
   color: var(--text);
-  box-shadow: 0 16px 40px #3b1b5926;
+  box-shadow: 0 16px 40px #0009;
   animation: dialog-enter 0.18s ease-out both;
 }
 .dialog-body {
@@ -231,7 +236,7 @@ body:has(.dialog-backdrop) {
 }
 .dialog-title {
   margin: 0;
-  color: var(--brand-deep);
+  color: var(--heading);
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.35;
@@ -275,7 +280,7 @@ body:has(.dialog-backdrop) {
   color: var(--accent-ink);
 }
 .dialog-button-danger:hover {
-  background: #9d2f41;
+  background: #862544;
 }
 .dialog-button-secondary {
   border-color: var(--brand);
@@ -318,24 +323,24 @@ body:has(.dialog-backdrop) {
 }
 .badge.LIVE {
   color: var(--success);
-  background: #e6f5ee;
+  background: #153328;
 }
 .badge.WAITING {
   color: var(--warning);
-  background: #fbf3df;
+  background: #392a15;
 }
 .badge.ENDED {
   color: var(--muted);
 }
 .warning {
-  border: 1px solid #e6d4a7;
-  background: #fff9e9;
-  color: #654d18;
+  border: 1px solid #795d2e;
+  background: #332614;
+  color: #f7dca5;
   padding: 14px;
   border-radius: 7px;
 }
 .error {
-  color: var(--danger);
+  color: var(--danger-text);
 }
 @media (max-width: 560px) {
   .row.mobile-column {

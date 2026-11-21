@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sg-brand-footer',
+  selector: 'jay-brand-footer',
   standalone: true,
-  template: '<footer>&copy; {{ year }} Grando Consult. Todos os direitos reservados.</footer>',
+  template: '<footer>&copy; {{ year }} Jayshare. Todos os direitos reservados.</footer>',
   styles: [
     `
       :host {

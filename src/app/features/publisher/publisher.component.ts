@@ -57,7 +57,7 @@ export class PublisherComponent implements OnInit, OnDestroy {
   });
   ngOnInit() {
     this.code = this.route.snapshot.paramMap.get('code') ?? '';
-    this.publisherSecret = sessionStorage.getItem(`screengrando.publisher.${this.code}`) ?? '';
+    this.publisherSecret = sessionStorage.getItem(`jayshare.publisher.${this.code}`) ?? '';
     this.viewerUrl.set(`${location.origin}/w/${this.code}`);
     if (!this.publisherSecret) {
       this.toast.show(
@@ -157,12 +157,15 @@ export class PublisherComponent implements OnInit, OnDestroy {
     this.confirmEnd.set(false);
     this.restoreFocus();
   }
+  cancelEndOnBackdrop(event: MouseEvent): void {
+    if (event.target === event.currentTarget) this.cancelEnd();
+  }
   confirmEndSession() {
     this.confirmEnd.set(false);
     this.restoreFocus();
     this.api.end(this.code, this.publisherSecret).subscribe({
       next: () => {
-        sessionStorage.removeItem('screengrando.publisher.' + this.code);
+        sessionStorage.removeItem('jayshare.publisher.' + this.code);
         this.ended.set(true);
         this.live.set(false);
         void this.lk.disconnect();
